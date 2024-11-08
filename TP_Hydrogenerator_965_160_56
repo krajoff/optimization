@@ -10,8 +10,15 @@ options.numObj = 2;                     % number of objectives
 options.numVar = 12;                     % number of design variables
 options.numCons = 14;                   % number of constraints
 
-options.lb = [9650-100 9000-100 1600-50 14-0 21-3 365-10 365-0 280-10 62-2 6-1 4-1 6-1]; % lower bound
-options.ub = [9650+100 9000+100 1600+50 14+3 21+3 365+5 365+10 280+10 62+2 6+1 4+1 6+1] ; % upper bound
+% Stator parameters
+da=9650; di=9000; elt=1600; delta=14;
+% Rotor parameters
+we=21; bp=365; bp1=365; bm=280; be=62;
+% Damper winding
+nb=6; not=4
+
+options.lb = [da-100 di-100 elt-50 delta-0 we-3 bp-10 bp1-0 bm-10 be-2 nb-1 not-1 6-1]; % lower bound
+options.ub = [da+100 di+100 elt+50 delta+3 we+3 bp+5 bp1+10 bm+10 be+2 nb+1 not+1 6+1] ; % upper bound
 options.nameObj = {'Efficiency', 'StatorMass'}; 
 
 options.vartype = [2 2 2 2 2 2 2 2 2 2 2 2];
